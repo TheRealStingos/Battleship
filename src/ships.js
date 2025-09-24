@@ -2,7 +2,7 @@ function ship(size) {
     return {
         size: size,
         hits: 0,
-        coords: null,
+        coords: new Array(size).fill(null),
         hit(targetCoords) {
             if (this.coords === targetCoords) {
                 this.hits += 1

@@ -6,7 +6,7 @@ describe('ship', () => {
     
     expect(testShip.size).toBe(3);
     expect(testShip.hits).toBe(0);
-    expect(testShip.coords).toBe(null);
+    expect(testShip.coords).toEqual(new Array(testShip.size).fill(null));
   });
 
   test('creates ships with different sizes', () => {
