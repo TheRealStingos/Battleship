@@ -45,7 +45,7 @@ function gameBoard() {
             if (ship.isSunk() === true) {
                 this.sunk += 1
                     if (this.ships === this.sunk) {
-                        return "game over"
+                        return "Game Over"
                     }
             }
             else {
@@ -55,4 +55,4 @@ function gameBoard() {
     }
 }
 
-module.exports = gameBoard
+export default gameBoard
