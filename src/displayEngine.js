@@ -13,9 +13,16 @@ function displayGameBoard(board, title, container) {
 
     board.spaces.forEach(space => {
         const tile = document.createElement('div');
-        tile.className = 'tile';  
-        tile.textContent = space;
-        grid.appendChild(tile);  
+        if (title === "Computer's Board") {
+            tile.className = 'opp-tile';
+            tile.textContent = space;
+            grid.appendChild(tile);  
+        }
+        else {
+            tile.className = 'tile';  
+            tile.textContent = space;
+            grid.appendChild(tile); 
+        } 
     });
     
     container.appendChild(boardContainer);
