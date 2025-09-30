@@ -1,3 +1,7 @@
+const display = document.getElementById("display");
+const inputSection = document.getElementById("input");
+
+
 function displayGameBoard(board, title, container) {
     const boardContainer = document.createElement("div");
     boardContainer.classList.add("board-container");
@@ -28,4 +32,9 @@ function displayGameBoard(board, title, container) {
     container.appendChild(boardContainer);
 }
 
-export { displayGameBoard }
+function displayPlayerSelect() {
+    display.innerHTML = "";
+    inputSection.classList.remove("hidden")
+}
+
+export { displayGameBoard, displayPlayerSelect }

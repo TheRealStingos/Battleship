@@ -1,10 +1,11 @@
-function ship(size) {
+function ship(name, size) {
     return {
+        name: name,
         size: size,
         hits: 0,
         coords: new Array(size).fill(null),
         hit(targetCoords) {
-            if (this.coords === targetCoords) {
+            if (this.coords.includes(targetCoords)) {
                 this.hits += 1
             }
         },
@@ -19,4 +20,4 @@ function ship(size) {
     }
 }
 
-module.exports = ship
+export default ship

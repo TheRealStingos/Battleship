@@ -17,6 +17,8 @@ function gameBoard() {
         sunk: 0,
         shipSpace: [],
         missSpace: [],
+        shipsArray: [],
+        
         placeShip(ship, placementCoords) {
             if (placementCoords.length !== ship.size) {
                 return false;
@@ -26,32 +28,39 @@ function gameBoard() {
             }
             else {
                 ship.coords = placementCoords;
-                this.shipSpace.push(...placementCoords)
-                this.ships += 1
+                this.shipSpace.push(...placementCoords);
+                this.shipsArray.push(ship); 
+                this.ships += 1;
                 return true;
             }
         },
+        
         receiveAttack(attackCoord) {
-            if (attackCoord.some(coord => this.shipSpace.includes(coord))) {
-                this.hits += 1
+            const coord = Array.isArray(attackCoord) ? attackCoord[0] : attackCoord;
+            
+            if (this.shipSpace.includes(coord)) {
+                this.hits += 1;
+                
+                const hitShip = this.shipsArray.find(ship => ship.coords.includes(coord));
+                if (hitShip) {
+                    hitShip.hit(coord);
+                    
+                    if (hitShip.isSunk()) {
+                        this.sunk += 1;
+                        console.log(`${hitShip.name} has been sunk!`);
+                        
+                        if (this.ships === this.sunk) {
+                            return "Game Over";
+                        }
+                    }
+                }
                 return true;
             }
             else {
-                this.missSpace.push(attackCoord)
+                this.missSpace.push(coord);
                 return false;
             }
         },
-        shipsSunk(ship) {
-            if (ship.isSunk() === true) {
-                this.sunk += 1
-                    if (this.ships === this.sunk) {
-                        return "Game Over"
-                    }
-            }
-            else {
-                return false;
-            }
-        }
     }
 }
 
