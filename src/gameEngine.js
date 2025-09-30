@@ -355,7 +355,6 @@ function endPlacementPhase() {
     displayGameBoard(gameState.human.gameBoard, `${gameState.human.name}'s Board`, gameboardsContainer);
     displayGameBoard(gameState.cpu.gameBoard, "Computer's Board", gameboardsContainer);
 
-    // Color the player's ships
     const humanTiles = document.querySelectorAll(".tile");
     gameState.human.gameBoard.shipSpace.forEach(coord => {
         const index = gameState.human.gameBoard.spaces.indexOf(coord);
