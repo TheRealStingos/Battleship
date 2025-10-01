@@ -23,6 +23,6 @@
     "deploy": "npm run build && gh-pages -d dist",
     "predeploy": "npm run build"
   },
-  "homepage": "https://TheRealStingos.github.io/battleship"
+  "homepage": "https://TheRealStingos.github.io/Battleship"
 }
 
