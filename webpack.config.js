@@ -11,7 +11,7 @@ module.exports = (env, argv) => {
     output: {
       filename: "main.js",
       path: path.resolve(__dirname, "dist"),
-      publicPath: isProduction ? '/battleship/' : '/',
+      publicPath: isProduction ? '/Battleship/' : '/',
       clean: true,
     },
     devtool: isProduction ? "source-map" : "eval-source-map",
