@@ -414,7 +414,7 @@ function humanTurn(tile, index) {
         
     } else {
         status.innerHTML = (`Miss on ${space}`);
-        tile.style.backgroundColor = 'blue';
+        tile.style.backgroundColor = 'lightblue';
         tile.style.pointerEvents = 'none';
         
         gameState.currentTurn = 'computer';
